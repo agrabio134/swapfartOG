@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$FARTOG – Swap Tokens</title>
+    <meta name="description" content="$FARTOG: Swap the gassiest meme coin on Solana. 💨">
+    <meta property="og:title" content="$FARTOG – Swap Tokens">
+    <meta property="og:description" content="Swap $FARTOG, the stinkiest coin on Solana!">
+    <meta property="og:image" content="https://swap.fartswap.io/gascloud.png">
+    <meta property="og:url" content="https://swap.fartswap.io">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="$FARTOG – Swap Tokens">
+    <meta name="twitter:description" content="Swap $FARTOG on Solana. 💨">
+    <link rel="icon" type="image/png" href="IMG_20250621_191529_174.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script defer src="https://terminal.jup.ag/main-v4.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --fartog-black: #1a1a1a;
+            --fartog-dark-brown: #2c1e0f;
+            --fartog-medium-brown: #3c2f1a;
+            --fartog-light-brown: #d2b48c;
+            --fartog-accent-brown: #8b5a2b;
+        }
+
+        body {
+            font-family: 'Verdana', 'Geneva', sans-serif;
+            background-color: var(--fartog-black);
+            color: var(--fartog-light-brown);
+            line-height: 1.6;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+       
+        .logo {
+            max-width: clamp(120px, 40vw, 140px);
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+        }
+
+        main {
+            flex: 1;
+            max-width: 100%;
+            width: 100%;
+            /* margin: 0 auto; */
+            /* padding: 0.5rem; */
+        }
+
+        .swap-section {
+            background-color: var(--fartog-dark-brown);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        #integrated-terminal {
+            width: 100%;
+            max-width: 100%;
+            min-height: 300px;
+            margin: 0 auto;
+            border: 2px solid var(--fartog-medium-brown);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--fartog-black);
+            position: relative;
+        }
+
+        .fartog-branding {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            display: flex;
+            align-items: center;
+            z-index: 999;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--fartog-dark-brown);
+            border-radius: 4px;
+            opacity: 1;
+        }
+
+        .fartog-branding .fartog-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.25rem;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+        }
+
+        .fartog-branding span {
+            color: var(--fartog-light-brown);
+            font-weight: bold;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+        }
+
+        ol.swap-steps {
+            list-style: decimal;
+            list-style-position: inside;
+            text-align: left;
+            max-width: 100%;
+            margin: 0.75rem auto;
+            color: var(--fartog-light-brown);
+            font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+        }
+
+        ol.swap-steps li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        ol.swap-steps i {
+            margin-right: 0.5rem;
+            color: var(--fartog-accent-brown);
+            font-size: clamp(1rem, 4vw, 1.1rem);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--fartog-black);
+            color: var(--fartog-light-brown);
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
+        }
+
+        /* Override Jupiter mobile styles for desktop */
+        @media (min-width: 1024px) {
+            #integrated-terminal {
+                max-width: 900px !important;
+                min-height: 400px;
+            }
+
+            #integrated-terminal > div {
+                width: 100% !important;
+                max-width: 900px !important;
+            }
+
+            #integrated-terminal .jupiter-terminal-container {
+                width: 100% !important;
+                max-width: 900px !important;
+                font-size: 16px !important;
+            }
+
+            #integrated-terminal input,
+            #integrated-terminal button {
+                font-size: 16px !important;
+                padding: 12px !important;
+            }
+        }
+
+        /* Mobile Styles (max-width: 600px) */
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem 0.5rem;
+                margin: 0;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            header h1 {
+                font-size: clamp(1.8rem, 7vw, 2rem);
+            }
+
+            .logo {
+                max-width: clamp(100px, 35vw, 120px);
+            }
+
+            .swap-section {
+                margin: 1rem 0;
+                padding: 0.75rem;
+            }
+
+            #integrated-terminal {
+                min-height: 280px;
+                max-width: 100%;
+            }
+
+            ol.swap-steps {
+                font-size: clamp(0.8rem, 3.2vw, 0.9rem);
+            }
+        }
+
+        /* Ultra-Small Mobile (max-width: 360px) */
+        @media (max-width: 360px) {
+            #integrated-terminal {
+                min-height: 260px;
+            }
+        }
+
+  
+    </style>
+</head>
+<body>
+
+    <main>
+        <section class="swap-section" id="grab" aria-label="Swap $FARTOG">
+      
+            <div id="integrated-terminal">
+                <div class="fartog-branding">
+                    <img src="IMG_20250621_191529_174.jpg" alt="$FARTOG Logo" class="fartog-logo">
+                    <span>$FARTOG Swap</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 $FARTOG. Powered by beans and bad decisions.</p>
+    </footer>
+    <script>
+        // Initialize Jupiter Terminal with retry logic
+        function initJupiterTerminal() {
+            const terminalContainer = document.getElementById('integrated-terminal');
+            if (!terminalContainer) {
+                console.error('Jupiter Terminal container not found!');
+                return;
+            }
+
+            if (!window.Jupiter) {
+                console.error('Jupiter script not loaded yet. Retrying...');
+                setTimeout(initJupiterTerminal, 500);
+                return;
+            }
+
+            try {
+                window.Jupiter.init({
+                    displayMode: "integrated",
+                    integratedTargetId: "integrated-terminal",
+                    endpoint: "https://rpc.ankr.com/solana",
+                    strictTokenList: false,
+                    defaultExplorer: "Solscan",
+                    formProps: {
+                        initialInputMint: "So11111111111111111111111111111111111111112", // SOL
+                        initialOutputMint: "DPRsW69Biyqtu9pmKBoPxbqNp9QcVpkH2yUSFeX2pump", // $FARTOG
+                        initialAmount: "100000000", // 0.1 SOL
+                        fixedInputMint: false,
+                        fixedOutputMint: true,
+                    },
+                    theme: {
+                        colors: {
+                            primary: "#3c2f1a",
+                            secondary: "#8b5a2b",
+                            background: "#1a1a1a",
+                            text: "#d2b48c",
+                            accent: "#2c1e0f",
+                        },
+                        fontFamily: "'Verdana', 'Geneva', sans-serif",
+                    },
+                    containerStyles: {
+                        maxWidth: window.innerWidth >= 1024 ? "900px" : "100%",
+                        width: "100%",
+                    },
+                });
+                console.log('Jupiter Terminal initialized successfully!');
+
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    #integrated-terminal a[href*="jup.ag"] img[src*="jupiter-logo"] {
+                        display: none !important;
+                    }
+                    #integrated-terminal a[href*="jup.ag"] .font-bold {
+                        margin-left: 8px;
+                    }
+                    #integrated-terminal div.mt-1.flex.items-center.gap-x-1:has(span:contains("Warnings")) {
+                        display: none !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            } catch (err) {
+                console.error('Failed to initialize Jupiter Terminal:', err);
+                terminalContainer.innerHTML = `
+                    <div style="color: #d2b48c; padding: 1rem; text-align: center;">
+                        <p>Sorry, the swap interface failed to load. 😢</p>
+                        <p>Please try again later or visit <a href="https://jup.ag/swap/SOL-9FLoRqzWDPpDbxfuHKEesaSnmmRBUJPagsebrWRLpump" style="color: #8b5a2b; text-decoration: underline;">Jupiter</a> to swap $FARTOG.</p>
+                    </div>
+                `;
+            }
+        }
+
+        window.addEventListener('load', initJupiterTerminal);
+    </script>
+</body>
+</html>
